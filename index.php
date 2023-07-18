@@ -1,8 +1,8 @@
 <?php 
   require_once('conn.php');
-  
+  $id = $_GET['id'];
 
-  $query = "SELECT * FROM makanan";
+  $query = "SELECT * FROM makanan WHERE id_makanan";
   $data = mysqli_query($conn, $query);
 
 ?>
@@ -43,10 +43,8 @@
                         <th>Alamat Warung</th>
                         <th> Aksi </th>
                     </tr>
-
                     <?php $i = 0; foreach($data as $d): ?>
                     <tr>
-                        
                         <td><?= ++$i?></td>
                         <td><?= $d['nama_makanan']?></td>
                         <td>Rp. <?= number_format($d['harga_makanan'],0,',','.'); ?></td>
